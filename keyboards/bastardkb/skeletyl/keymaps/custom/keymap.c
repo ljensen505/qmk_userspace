@@ -17,14 +17,8 @@
 
 #include QMK_KEYBOARD_H
 
-#define ESC_MED LT(LAYER_MEDIA, KC_ESC)
-#define SPC_NAV LT(LAYER_NAVIGATION, KC_SPC)
-#define TAB_FUN LT(LAYER_FUNCTION, KC_TAB)
-#define ENT_SYM LT(LAYER_SYMBOLS, KC_ENT)
-#define BSP_NUM LT(LAYER_NUMERAL, KC_BSPC)
-
 // base homerow mods
-#define HR_A    MT(MOD_LGUI, KC_A)
+#define HR_A    MT(KC_LGUI, KC_A)
 #define HR_S    MT(MOD_LALT, KC_S)
 #define HR_D    MT(MOD_LSFT, KC_D)
 #define HR_F    MT(MOD_LCTL, KC_F)
@@ -32,20 +26,23 @@
 #define HR_K    MT(MOD_RSFT, KC_K)
 #define HR_L    MT(MOD_LALT, KC_L)
 #define HR_SCLN MT(MOD_RGUI, KC_SCLN)
+;;;;;;;;;;;;;;;;;;
+
+// other mods
+#define Q_ESC   MT(KC_ESC, KC_V)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [0] = LAYOUT_split_3x5_3(
   //,--------------------------------------------.                      ,--------------------------------------------.
-       KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                           KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,
+       Q_ESC,    KC_W,    KC_E,    KC_R,    KC_T,                           KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,
   //|--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------|
-       HR_A,    HR_S,    HR_D,    HR_F,    KC_G,                           KC_H,    HR_J,    HR_K,    HR_L,  HR_SCLN,
+    LGUI_T(KC_A), LALT_T(KC_S), LSFT_T(KC_D), LCTL_T(KC_F), KC_G,           KC_H,   RCTL_T(KC_J), RSFT_T(KC_K), LALT_T(KC_L), RGUI_T(KC_SCLN),
   //|--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------|
        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                           KC_N,    KC_M,   KC_COMM, KC_DOT, KC_SLSH,
   //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
-                                 ESC_MED, SPC_NAV, TAB_FUN,       MO(2), KC_ENT , KC_RALT
+                                  KC_ESC, KC_TAB, MO(1),           MO(2), KC_ENT , KC_SPC
                              //`--------------------------'    `--------------------------'
-
   ),
 
   [1] = LAYOUT_split_3x5_3(
