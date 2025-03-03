@@ -26,7 +26,6 @@
 #define HR_K    MT(MOD_RSFT, KC_K)
 #define HR_L    MT(MOD_LALT, KC_L)
 #define HR_SCLN MT(MOD_RGUI, KC_SCLN)
-;;;;;;;;;;;;;;;;;;
 
 // other mods
 #define Q_ESC   MT(KC_ESC, KC_V)
