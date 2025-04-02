@@ -15,6 +15,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+// This keymap is heavilyl inspired by Quentin LEBASTARD's work at bastardkb.com
+
 #include QMK_KEYBOARD_H
 #if __has_include("keymap.h")
 #    include "keymap.h"
@@ -25,13 +27,13 @@ enum ferris_sweep_layers {
     LAYER_FUNCTION,
     LAYER_NAVIGATION,
     LAYER_NUMERAL,
-    LAYER_SYMBOLS,
+    LAYER_MEDIA
 };
 
-#define SPC_NAV LT(LAYER_NAVIGATION, KC_SPC)
-#define TAB_FUN LT(LAYER_FUNCTION, KC_TAB)
-#define ENT_SYM LT(LAYER_SYMBOLS, KC_ENT)
-#define BSP_NUM LT(LAYER_NUMERAL, KC_BSPC)
+#define SPC_MED LT(LAYER_MEDIA, KC_SPC)
+#define TAB_NUM LT(LAYER_NUMERAL, KC_TAB)
+#define ENT_NAV LT(LAYER_NAVIGATION, KC_ENT)
+#define G_FUN LT(LAYER_FUNCTION, KC_G)
 
 /** Homerow mods for base layer. */
 #define HR_A    LGUI_T(KC_A)
@@ -50,24 +52,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //,--------------------------------------------.                      ,--------------------------------------------.
         KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                           KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,
     //|--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------|
-        HR_A,    HR_S,    HR_D,    HR_F,    KC_G,                           KC_H,    HR_J,    HR_K,    HR_L,   HR_QU,
+        HR_A,    HR_S,    HR_D,    HR_F,    G_FUN,                          KC_H,    HR_J,    HR_K,    HR_L,   HR_QU,
     //|--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------|
         KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                           KC_N,    KC_M,   KC_COMM, KC_DOT, KC_SLSH,
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
-                                            SPC_NAV, TAB_FUN,      ENT_SYM, BSP_NUM
+                                            ENT_NAV, TAB_NUM,       SPC_MED, KC_BSPC
                                 //`--------------------------'    `--------------------------'
     ),
 
     [LAYER_FUNCTION] = LAYOUT_split_3x5_2(
-   //,--------------------------------------------.                      ,--------------------------------------------.
-       KC_ESC,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        KC_PSCR,   KC_F7,   KC_F8,   KC_F9,  KC_F12,
-   //|--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------|
-       KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, XXXXXXX,                        KC_SCRL,   KC_F4,   KC_F5,   KC_F6,  KC_F11,
-   //|--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------|
-       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        KC_PAUS,   KC_F1,   KC_F2,   KC_F3,  KC_F10,
-   //|--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------|
-                                        XXXXXXX, _______,           XXXXXXX, XXXXXXX
-                              //`--------------------------'    `--------------------------'
+    //,--------------------------------------------.                      ,--------------------------------------------.
+        KC_ESC,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        KC_PSCR,   KC_F7,   KC_F8,   KC_F9,  KC_F12,
+    //|--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------|
+        KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, XXXXXXX,                        KC_SCRL,   KC_F4,   KC_F5,   KC_F6,  KC_F11,
+    //|--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------|
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        KC_PAUS,   KC_F1,   KC_F2,   KC_F3,  KC_F10,
+    //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
+                                            XXXXXXX, XXXXXXX,       XXXXXXX, XXXXXXX
+                               //`--------------------------'    `--------------------------'
    ),
 
    [LAYER_NAVIGATION] = LAYOUT_split_3x5_2(
@@ -77,36 +79,35 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,                       KC_CAPS, KC_LEFT, KC_DOWN,  KC_UP,  KC_RGHT,
     //|--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------|
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        KC_INS, KC_HOME, KC_PGDN, KC_PGUP,  KC_END,
-    //|--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------|
-                                         _______, XXXXXXX,           KC_ENT, KC_BSPC
+    //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
+                                            _______, XXXXXXX,       KC_ENT, KC_BSPC
                                //`--------------------------'    `--------------------------'
     ),
 
     [LAYER_NUMERAL] = LAYOUT_split_3x5_2(
     //,--------------------------------------------.                      ,--------------------------------------------.
-        KC_LBRC,   KC_7,    KC_8,    KC_9, KC_RBRC,                         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        KC_LBRC,   KC_7,    KC_8,    KC_9, KC_RBRC,
     //|--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------|
-        KC_SCLN,   KC_4,    KC_5,    KC_6,  KC_EQL,                         XXXXXXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
+        KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,                        KC_SCLN,   KC_4,    KC_5,    KC_6,  KC_EQL,
     //|--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------|
-        KC_GRV,   KC_1,    KC_2,    KC_3, KC_BSLS,                          XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    //|--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------|
-                                        KC_0,  KC_MINS,             XXXXXXX, _______
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        KC_GRV,   KC_1,    KC_2,    KC_3, KC_BSLS,
+    //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
+                                            XXXXXXX, _______,       KC_0,  KC_MINS
                                 //`--------------------------'    `--------------------------'
     ),
 
-    [LAYER_SYMBOLS] = LAYOUT_split_3x5_2(
+    [LAYER_MEDIA] = LAYOUT_split_3x5_2(
     //,--------------------------------------------.                      ,--------------------------------------------.
-        KC_LCBR, KC_AMPR, KC_ASTR, KC_LPRN, KC_RCBR,                         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     //|--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------|
-        KC_COLN,  KC_DLR, KC_PERC, KC_CIRC, KC_PLUS,                         XXXXXXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
+        KC_MPRV, KC_VOLD, KC_MUTE, KC_VOLU, KC_MNXT,                        KC_MPRV, KC_VOLD, KC_MUTE, KC_VOLU, KC_MNXT,
     //|--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------|
-        KC_TILD, KC_EXLM,   KC_AT, KC_HASH, KC_PIPE,                         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    //|--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------|
-                                        KC_RPRN, KC_UNDS,           _______, XXXXXXX
+        XXXXXXX, XXXXXXX, XXXXXXX,  EE_CLR, QK_BOOT,                        QK_BOOT,  EE_CLR, XXXXXXX, XXXXXXX, XXXXXXX,
+    //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
+                                        KC_MPLY, KC_MSTP,           _______, KC_MPLY
                                 //`--------------------------'    `--------------------------'
     )
 };
-
 
 #ifdef OTHER_KEYMAP_C
 #    include OTHER_KEYMAP_C
