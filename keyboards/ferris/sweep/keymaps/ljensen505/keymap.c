@@ -31,8 +31,8 @@ enum ferris_sweep_layers {
 };
 
 #define SPC_MED LT(LAYER_MEDIA, KC_SPC)
-#define TAB_NUM LT(LAYER_NUMERAL, KC_TAB)
-#define ENT_NAV LT(LAYER_NAVIGATION, KC_ENT)
+#define TAB_NAV LT(LAYER_NAVIGATION, KC_TAB)
+#define ENT_NUM LT(LAYER_NUMERAL, KC_ENT)
 #define G_FUN LT(LAYER_FUNCTION, KC_G)
 
 /** Homerow mods for base layer. */
@@ -56,19 +56,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------|
         KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                           KC_N,    KC_M,   KC_COMM, KC_DOT, KC_SLSH,
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
-                                            ENT_NAV, TAB_NUM,       SPC_MED, KC_BSPC
+                                            ENT_NUM, TAB_NAV,       SPC_MED, KC_BSPC
                                 //`--------------------------'    `--------------------------'
     ),
 
     [LAYER_FUNCTION] = LAYOUT_split_3x5_2(
     //,--------------------------------------------.                      ,--------------------------------------------.
-        KC_ESC,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        KC_PSCR,   KC_F7,   KC_F8,   KC_F9,  KC_F12,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        KC_ESC,   KC_F7,   KC_F8,   KC_F9,  KC_F12,
     //|--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------|
-        KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, XXXXXXX,                        KC_SCRL,   KC_F4,   KC_F5,   KC_F6,  KC_F11,
+        KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, XXXXXXX,                        KC_ENT,   KC_F4,   KC_F5,   KC_F6,  KC_F11,
     //|--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------|
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        KC_PAUS,   KC_F1,   KC_F2,   KC_F3,  KC_F10,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        KC_TAB,   KC_F1,   KC_F2,   KC_F3,  KC_F10,
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
-                                            XXXXXXX, XXXXXXX,       XXXXXXX, XXXXXXX
+                                            KC_ENT, KC_TAB,         KC_SPC, KC_BSPC
                                //`--------------------------'    `--------------------------'
    ),
 
@@ -80,7 +80,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------|
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        KC_INS, KC_HOME, KC_PGDN, KC_PGUP,  KC_END,
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
-                                            _______, XXXXXXX,       KC_ENT, KC_BSPC
+                                            XXXXXXX, _______,       KC_SPC, KC_BSPC
                                //`--------------------------'    `--------------------------'
     ),
 
@@ -92,7 +92,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------|
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        KC_GRV,   KC_1,    KC_2,    KC_3, KC_BSLS,
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
-                                            XXXXXXX, _______,       KC_0,  KC_MINS
+                                            _______, XXXXXXX,       KC_0,  KC_MINS
                                 //`--------------------------'    `--------------------------'
     ),
 
