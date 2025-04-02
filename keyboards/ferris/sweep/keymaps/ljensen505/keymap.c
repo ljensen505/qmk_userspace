@@ -33,7 +33,7 @@ enum ferris_sweep_layers {
 #define SPC_MED LT(LAYER_MEDIA, KC_SPC)
 #define TAB_NAV LT(LAYER_NAVIGATION, KC_TAB)
 #define ENT_NUM LT(LAYER_NUMERAL, KC_ENT)
-#define G_FUN LT(LAYER_FUNCTION, KC_G)
+#define V_FUN LT(LAYER_FUNCTION, KC_G)
 
 /** Homerow mods for base layer. */
 #define HR_A    LGUI_T(KC_A)
@@ -52,9 +52,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //,--------------------------------------------.                      ,--------------------------------------------.
         KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                           KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,
     //|--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------|
-        HR_A,    HR_S,    HR_D,    HR_F,    G_FUN,                          KC_H,    HR_J,    HR_K,    HR_L,   HR_QU,
+        HR_A,    HR_S,    HR_D,    HR_F,    KC_G,                           KC_H,    HR_J,    HR_K,    HR_L,   HR_QU,
     //|--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------|
-        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                           KC_N,    KC_M,   KC_COMM, KC_DOT, KC_SLSH,
+        KC_Z,    KC_X,    KC_C,    V_FUN,   KC_B,                           KC_N,    KC_M,   KC_COMM, KC_DOT, KC_SLSH,
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
                                             ENT_NUM, TAB_NAV,       SPC_MED, KC_BSPC
                                 //`--------------------------'    `--------------------------'
