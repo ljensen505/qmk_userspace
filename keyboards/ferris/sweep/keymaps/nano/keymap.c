@@ -63,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [LAYER_FUNCTION] = LAYOUT_split_3x5_2(
     //,--------------------------------------------.                      ,--------------------------------------------.
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        KC_PSCR,   KC_F7,   KC_F8,   KC_F9,  KC_F12,
+        KC_ESC,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        KC_PSCR,   KC_F7,   KC_F8,   KC_F9,  KC_F12,
     //|--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------|
         KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, XXXXXXX,                        KC_SCRL,   KC_F4,   KC_F5,   KC_F6,  KC_F11,
     //|--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------|
@@ -75,7 +75,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
    [LAYER_NAVIGATION] = LAYOUT_split_3x5_2(
     //,--------------------------------------------.                      ,--------------------------------------------.
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        KC_ESC,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     //|--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------|
         KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,                       KC_CAPS, KC_LEFT, KC_DOWN,  KC_UP,  KC_RGHT,
     //|--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------|
