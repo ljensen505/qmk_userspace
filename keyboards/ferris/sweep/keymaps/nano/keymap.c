@@ -34,8 +34,9 @@ enum ferris_sweep_layers {
 #define SPC_NAV LT(LAYER_NAVIGATION, KC_SPC)
 #define TAB_FUN LT(LAYER_FUNCTION, KC_TAB)
 #define BSP_NUM LT(LAYER_NUMERAL, KC_BSPC)
-#define M_SYM LT(LAYER_SYMBOLS, KC_M)
+// #define M_SYM LT(LAYER_SYMBOLS, KC_M)
 #define ENT_MED LT(LAYER_MEDIA, KC_ENT)
+#define MO_SYM MO(LAYER_SYMBOLS)
 
 /** Homerow mods for base layer. */
 #define HR_A    LGUI_T(KC_A)
@@ -54,7 +55,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------|
         HR_A,    HR_S,    HR_D,    HR_F,    KC_G,                           KC_H,    HR_J,    HR_K,    HR_L,   HR_QU,
     //|--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------|
-        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                           KC_N,    M_SYM,   KC_COMM, KC_DOT, KC_SLSH,
+        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                           KC_N,    KC_M,   KC_COMM, KC_DOT, KC_SLSH,
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
                                             TAB_FUN, SPC_NAV,       BSP_NUM, ENT_MED
                                 //`--------------------------'    `--------------------------'
@@ -92,7 +93,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------|
         KC_GRV,   KC_1,    KC_2,    KC_3, KC_BSLS,                          XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     //|--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------|
-                                            KC_TAB, KC_SPC,         _______, XXXXXXX
+                                            KC_TAB, KC_SPC,         _______, MO_SYM
                                 //`--------------------------'    `--------------------------'
     ),
 
@@ -104,7 +105,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------|
         XXXXXXX, XXXXXXX, XXXXXXX,  EE_CLR, QK_BOOT,                        QK_BOOT,  EE_CLR, XXXXXXX, XXXXXXX, XXXXXXX,
     //|--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------|
-                                            KC_TAB, KC_SPC,         XXXXXXX, _______
+                                            KC_TAB, KC_SPC,         MO_SYM, _______
                                 //`--------------------------'    `--------------------------'
     ),
 
@@ -114,9 +115,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------|
         KC_COLN,  KC_DLR, KC_PERC, KC_CIRC, KC_PLUS,                        XXXXXXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
     //|--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------|
-        KC_TILD, KC_EXLM,   KC_AT, KC_HASH, KC_PIPE,                        XXXXXXX, _______, XXXXXXX, XXXXXXX, XXXXXXX,
+        KC_TILD, KC_EXLM,   KC_AT, KC_HASH, KC_PIPE,                        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     //|--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------|
-                                            KC_TAB, KC_SPC,         KC_BSPC, KC_ENT
+                                            KC_TAB, KC_SPC,         _______, _______
                                 //`--------------------------'    `--------------------------'
     )
 };
